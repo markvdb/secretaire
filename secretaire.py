@@ -2,6 +2,11 @@ import subprocess
 import time
 
 def switch_tty(tty_number):
+    '''
+    We want to make sure the keyboard is attached to a tty.
+    Alternatives using evdev are needlessly complicated, especially
+    with international keyboard layouts.
+    '''
     try:
         subprocess.run(['chvt', str(tty_number)], check=True)
     except subprocess.CalledProcessError as e:
@@ -11,7 +16,7 @@ def switch_tty(tty_number):
 
 
 def select_task():
-    options = ['calendar','email', 'news', 'wikipedia', 'youtube']
+    options = ['calendar','contacts', 'email', 'news', 'radio', 'sms', 'wikipedia', 'youtube']
     task = ''
     task_menu = "Make your choice:\n"
     for index, item in enumerate(options):
