@@ -27,11 +27,13 @@ def select_task():
 
 switch_tty(7)
 time.sleep(3)
-task = select_task()
-
 while True:
-    i = input('subject: ')
-    match task:
-        case 'youtube':
-            searchstring = 'ytdl://ytsearch100:\''+ i + '\''
-            subprocess.run(['mpv', '--no-video', searchstring])
+    task = select_task()
+    
+    while True:
+        i = input('subject: ')
+        if (i == 'q'): break
+        match task:
+            case 'youtube':
+                searchstring = 'ytdl://ytsearch100:\''+ i + '\''
+                subprocess.run(['mpv', '--no-video', searchstring])
