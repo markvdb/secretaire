@@ -1,6 +1,11 @@
 import subprocess
 import time
 
+# Global variables
+inputs= ['camera', 'keyboard', 'phone_dtmf', 'phone_mic', 'qr_scanner', 'scan', 'sd_card']
+outputs= ['galvanometer', 'odometer', 'print_thermal', 'print_laser', 'radio_speaker', 'splitflap']
+tasks = ['ai', 'calendar','call', 'contacts', 'email', 'news', 'notes', 'rss', 'radio', 'record', 'sms', 'stocks', 'transport', 'weather', 'wikipedia', 'youtube']
+
 def switch_tty(tty_number):
     '''
     We want to make sure the keyboard is attached to a tty.
@@ -14,16 +19,32 @@ def switch_tty(tty_number):
     except PermissionError:
         print("Error: Changing tty requires root privileges.")
 
-
 def select_task():
-    options = ['calendar','call', 'contacts', 'email', 'notes', 'rss', 'radio', 'record', 'sms', 'stocks', 'wikipedia', 'youtube']
     task = ''
     task_menu = "Make your choice:\n"
-    for index, item in enumerate(options):
+    for index, item in enumerate(tasks):
         task_menu += f'{index+1}) {item}\n'
-    while task not in options:
+    while task not in tasks:
         task = input(task_menu)
     return (task)
+
+def select_input():
+    input  = ''
+    input_menu = "Make your choice:\n"
+    for index, item in enumerate(inputs):
+        input_menu += f'{index+1}) {item}\n'
+    while input not in inputs:
+        input = input(input_menu)
+    return (input)
+
+def select_output():
+    output  = ''
+    output_menu = "Make your choice:\n"
+    for index, item in enumerate(outputs):
+        output_menu += f'{index+1}) {item}\n'
+    while output not in options:
+        output = input(output_menu)
+    return (output)
 
 switch_tty(7)
 time.sleep(3)
