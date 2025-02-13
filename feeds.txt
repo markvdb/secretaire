@@ -1,0 +1,3 @@
+rss https://rebaltica.lv/feed/
+none https://en.wikipedia.org/wiki/Portal:Current_events
+https://lemmy.world/feeds/c/world.xml

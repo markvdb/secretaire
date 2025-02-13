@@ -16,7 +16,7 @@ def switch_tty(tty_number):
 
 
 def select_task():
-    options = ['calendar','call', 'contacts', 'email', 'rss', 'radio', 'record', 'sms', 'stocks', 'wikipedia', 'youtube']
+    options = ['calendar','call', 'contacts', 'email', 'notes', 'rss', 'radio', 'record', 'sms', 'stocks', 'wikipedia', 'youtube']
     task = ''
     task_menu = "Make your choice:\n"
     for index, item in enumerate(options):
@@ -76,6 +76,13 @@ while True:
                         - enter email id
                     - forward
                         - enter email id
+                '''
+
+            case 'notes':
+                print('TODO implement')
+                '''
+                - how to tag?
+                - how to digitise?
                 '''
 
             case 'rss':
